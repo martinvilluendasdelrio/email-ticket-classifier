@@ -81,6 +81,8 @@ Formato de ejemplo (`data/raw/emails.csv`):
 
 ## 🔹Estructura de ejemplo:
 
+´´´json
+
 {
   "version": "1.0",
   "last_updated": "2025-01-01",
@@ -105,11 +107,14 @@ Formato de ejemplo (`data/raw/emails.csv`):
     }
   ]
 }
+
+```
 Cada patrón tiene un id, un texto a buscar (pattern), una label, confidence, tipo de coincidencia, si está enabled y la fuente (manual o suggested).
 ---
 
 ## 🔹Salida del sistema
 Cada email procesado devuelve un JSON con este formato:
+```json
 {
   "email_id": 1,
   "label": "bug",
@@ -117,15 +122,15 @@ Cada email procesado devuelve un JSON con este formato:
   "source": "rule",
   "rule_id": "ERR_001"
 }
-
+```
 Si no hay coincidencia:
-
+```json
 {
   "email_id": 4,
   "matched": false
 }
 ---
-
+```
 ## 🔹 Umbral de confianza
 - Umbral inicial: 0.8
 - Si una regla tiene confidence >= 0.8, el resultado se toma directamente
