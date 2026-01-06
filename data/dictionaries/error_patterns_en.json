@@ -1,0 +1,51 @@
+{
+  "version": "1.0",
+  "last_updated": "2025-01-01",
+  "patterns": [
+    {
+      "id": "ERR_001",
+      "pattern": "error 500",
+      "label": "bug",
+      "confidence": 0.95,
+      "match_type": "contains",
+      "enabled": true,
+      "source": "manual"
+    },
+    {
+      "id": "ERR_002",
+      "pattern": "error 200",
+      "label": "bug",
+      "confidence": 0.95,
+      "match_type": "contains",
+      "enabled": true,
+      "source": "manual"
+    },
+    {
+      "id": "ERR_003",
+      "pattern": "crash",
+      "label": "bug",
+      "confidence": 0.9,
+      "match_type": "contains",
+      "enabled": true,
+      "source": "manual"
+    },
+    {
+      "id": "REQ_001",
+      "pattern": "feature request",
+      "label": "feature_request",
+      "confidence": 0.85,
+      "match_type": "contains",
+      "enabled": true,
+      "source": "manual"
+    },
+    {
+      "id": "REQ_002",
+      "pattern": "i would like to",
+      "label": "feature_request",
+      "confidence": 0.8,
+      "match_type": "contains",
+      "enabled": true,
+      "source": "manual"
+    }
+  ]
+}

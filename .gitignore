@@ -1,0 +1,50 @@
+# ===============================
+# Python
+# ===============================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+.env/
+.venv/
+
+# ===============================
+# Jupyter / notebooks
+# ===============================
+.ipynb_checkpoints/
+
+# ===============================
+# Data files (IMPORTANT)
+# ===============================
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# ===============================
+# Logs
+# ===============================
+logs/
+*.log
+
+# ===============================
+# OS / Editor
+# ===============================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ===============================
+# Secrets
+# ===============================
+.env
+*.env
+secrets.yml
