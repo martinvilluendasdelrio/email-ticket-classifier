@@ -4,11 +4,6 @@ import logging
 
 REQUIRED_COLUMNS = {'id_email', 'user_email','subject', 'body', 'date', 'language'}
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
-
 logger = logging.getLogger(__name__)
 
 def read_emails(path: Path) -> pl.DataFrame | None:
