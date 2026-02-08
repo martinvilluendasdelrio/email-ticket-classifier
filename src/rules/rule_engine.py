@@ -19,9 +19,34 @@ def load_rule(path: Path | str) -> list[dict]:
     - Filtra reglas habilitadas
     - Devuelve lista de dicts
     """
+
     logger.info("Loading rules")
 
-def evaluate_rule(text: str, rule: dict) -> bool:
+    rules_dir = Path(path)
+
+    rule_files = [
+        rules_dir / "error_patterns_en.json",
+        rules_dir / "error_patterns_es.json"
+    ]
+
+    all_rules: list[dict] = []
+
+    for rule_file in rule_files:
+        with open(rule_file, 'r', encoding='utf-8') as f:
+            rules = json.load(f)
+
+            patterns = rules.get('patterns', [])
+    
+            enabled_rules = [r for r in patterns if r.get("enabled", False)]
+            
+            all_rules.extend(enabled_rules)
+
+    logger.info('Rules read successfully')
+
+    return all_rules
+    
+
+def evaluate_rule(text: str, rules: dict) -> bool:
     """
     Evalúa si un texto cumple una regla concreta.
 
@@ -30,6 +55,10 @@ def evaluate_rule(text: str, rule: dict) -> bool:
     - startswith
     - regex (opcional)
     """
+    text = text.lower()
+    pattern = rules.get("pattern", "").lower()
+
+    return pattern in text
 
 def match_rule(text: str, rules: list[dict]) -> dict | None:
     """
